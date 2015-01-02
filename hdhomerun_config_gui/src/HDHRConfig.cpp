@@ -258,7 +258,7 @@ void HDHRConfig::DeviceList_Changed(void)
 
 	/* Channelmaps. */
 	char *cChannelmaps;
-	if (hdhomerun_device_get_supported(SelectedDev->hd, "channelmap: ", &cChannelmaps) <= 0) {
+	if (hdhomerun_device_get_supported(SelectedDev->hd, (char *)"channelmap: ", &cChannelmaps) <= 0) {
 		Tab_Changed();
 		return;
 	}
@@ -479,7 +479,7 @@ void HDHRConfig::UpdateTunerPage()
 		return;
 	}
 	if (ret == 0) {
-		cStatusStr = "";
+		cStatusStr = (char *)"";
 	}
 
 	GString *text = g_string_new(NULL);
@@ -544,7 +544,7 @@ void HDHRConfig::UpdateTunerPage()
 		return;
 	}
 	if (ret == 0) {
-		cChannelMap = "";
+		cChannelMap = (char *)"";
 	}
 
 	string ChannelMap = cChannelMap;
@@ -587,7 +587,7 @@ void HDHRConfig::UpdateTunerPage()
 		return;
 	}
 	if (ret == 0) {
-		cProgramStr = "0";
+		cProgramStr = (char *)"0";
 	}
 
 	uint32_t ProgramNumber = atol(cProgramStr);

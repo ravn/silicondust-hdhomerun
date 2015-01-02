@@ -16,7 +16,7 @@ TViewer::TViewer()
 {
 	ExeName = "vlc";
 	FindViewer();
-	g_static_mutex_init(&mutex);
+	g_mutex_init(&mutex);
 
 	hdhomerun_debug_printf(dbg, "Viewer: viewer location: %s\n", ExeName.c_str());
 
@@ -137,9 +137,7 @@ bool TViewer::Start(THDHomeRunDevice * Dev)
 	/* Start thread. */
 	ThreadExecute = true;
 
-	GError *err = NULL;
-
-	StreamThread = g_thread_create((GThreadFunc) & cStreamThreadExecute, (gpointer) this, true, &err);
+	StreamThread = g_thread_new("Viewer", (GThreadFunc) cStreamThreadExecute, (gpointer) this);
 
 	/* Start viewer. */
 #ifdef __WINDOWS__
@@ -185,7 +183,7 @@ void TViewer::Stop()
 	}
 #endif
 
-	if (g_static_mutex_trylock(&mutex) == false) {
+	if (g_mutex_trylock(&mutex) == false) {
 		return;
 	}
 
@@ -203,7 +201,7 @@ void TViewer::Stop()
 
 	hdhomerun_debug_set_prefix(dbg, NULL);
 
-	g_static_mutex_unlock(&mutex);
+	g_mutex_unlock(&mutex);
 }
 
 

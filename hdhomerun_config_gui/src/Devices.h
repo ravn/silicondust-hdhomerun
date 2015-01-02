@@ -23,7 +23,7 @@ public:
 
 class THDHomeRunDeviceList {
 protected:
-	GStaticRWLock Lock;
+	GRWLock Lock;
 	THDHomeRunDevice *DeviceList;
 	uint16_t FFoundErrorCode;
 

@@ -13,6 +13,7 @@
 #  include <ApplicationServices/ApplicationServices.h>
 #  include <CoreServices/CoreServices.h>
 #  include <CoreFoundation/CoreFoundation.h>
+#  include <gtkmacintegration/gtkosxapplication.h>
 #endif
 
 #include "hdhomerun.h"

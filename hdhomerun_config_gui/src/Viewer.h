@@ -31,7 +31,7 @@ protected:
 	struct hdhomerun_device_t *hd;
 
 	bool ThreadExecute;
-	GStaticMutex mutex;
+	GMutex mutex;
 };
 
 #endif

@@ -44,7 +44,7 @@ void THDHomeRunDevice::ResolveModel()
 
 THDHomeRunDeviceList::THDHomeRunDeviceList()
 {
-	g_static_rw_lock_init(&Lock);
+	g_rw_lock_init(&Lock);
 	DeviceList = NULL;
 	FFoundErrorCode = 0;
 }
@@ -55,9 +55,9 @@ THDHomeRunDeviceList::~THDHomeRunDeviceList()
 
 uint16_t THDHomeRunDeviceList::FoundErrorCode()
 {
-	g_static_rw_lock_reader_lock(&Lock);
+	g_rw_lock_reader_lock(&Lock);
 	uint16_t Result = FFoundErrorCode;
-	g_static_rw_lock_reader_unlock(&Lock);
+	g_rw_lock_reader_unlock(&Lock);
 	return Result;
 }
 
@@ -170,7 +170,7 @@ THDHomeRunDevice *THDHomeRunDeviceList::Find(string Name)
 
 THDHomeRunDevice *THDHomeRunDeviceList::IterateFirst()
 {
-	g_static_rw_lock_writer_lock(&Lock);
+	g_rw_lock_writer_lock(&Lock);
 	return DeviceList;
 }
 
@@ -181,12 +181,12 @@ THDHomeRunDevice *THDHomeRunDeviceList::IterateNext(THDHomeRunDevice * Dev)
 
 void THDHomeRunDeviceList::IterateComplete()
 {
-	g_static_rw_lock_writer_unlock(&Lock);
+	g_rw_lock_writer_unlock(&Lock);
 }
 
 void THDHomeRunDeviceList::IterateExceptionCleanup()
 {
-	g_static_rw_lock_writer_unlock(&Lock);
+	g_rw_lock_writer_unlock(&Lock);
 }
 
 THDHomeRunDevice *THDHomeRunDeviceList::AddDeviceInternal(string Name, uint32_t DeviceID, guint8 TunerIndex)
@@ -242,7 +242,7 @@ THDHomeRunDevice *THDHomeRunDeviceList::AddDevice(string Name, guint32 DeviceID,
 		return NULL;
 	}
 
-	g_static_rw_lock_writer_lock(&Lock);
+	g_rw_lock_writer_lock(&Lock);
 
 	THDHomeRunDevice *Dev = NULL;
 	try {
@@ -252,7 +252,7 @@ THDHomeRunDevice *THDHomeRunDeviceList::AddDevice(string Name, guint32 DeviceID,
 		hdhomerun_debug_printf(dbg, "devices: AddDevice exception!\n");
 	}
 
-	g_static_rw_lock_writer_unlock(&Lock);
+	g_rw_lock_writer_unlock(&Lock);
 	return Dev;
 }
 
@@ -327,7 +327,7 @@ void THDHomeRunDeviceList::DetectDiscover()
 
 void THDHomeRunDeviceList::DetectEntry()
 {
-	g_static_rw_lock_writer_lock(&Lock);
+	g_rw_lock_writer_lock(&Lock);
 
 	THDHomeRunDevice *Dev = DeviceList;
 	while (Dev) {
@@ -337,12 +337,12 @@ void THDHomeRunDeviceList::DetectEntry()
 
 	FFoundErrorCode = 0;
 
-	g_static_rw_lock_writer_unlock(&Lock);
+	g_rw_lock_writer_unlock(&Lock);
 }
 
 void THDHomeRunDeviceList::DetectCleanup()
 {
-	g_static_rw_lock_writer_lock(&Lock);
+	g_rw_lock_writer_lock(&Lock);
 
 	THDHomeRunDevice *Prev = NULL;
 	THDHomeRunDevice *Dev = DeviceList;
@@ -362,7 +362,7 @@ void THDHomeRunDeviceList::DetectCleanup()
 		}
 	}
 
-	g_static_rw_lock_writer_unlock(&Lock);
+	g_rw_lock_writer_unlock(&Lock);
 }
 
 void THDHomeRunDeviceList::Detect()
