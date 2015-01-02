@@ -5,10 +5,16 @@ AM_INIT_AUTOMAKE(hdhomerun_config_gui, 0.1)
 AM_CONFIG_HEADER(config.h)
 AM_MAINTAINER_MODE
 
+case ${OSTYPE} in
+darwin*)
+	LIBS="${LIBS} -framework CoreFoundation -framework CoreServices"
+	;;
+esac
+
 #AC_ISC_POSIX
-#AC_PROG_CC
-#AM_PROG_CC_STDC
-#AC_HEADER_STDC
+AC_PROG_CC
+AM_PROG_CC_STDC
+AC_HEADER_STDC
 AC_PROG_CXX
 
 pkg_modules="gtk+-2.0 >= 2.0.0 gthread-2.0"

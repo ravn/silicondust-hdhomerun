@@ -42,6 +42,7 @@ protected:
 	GtkWindow *hdhomerun_config;
 
 	/* Device */
+	GtkScrolledWindow *scrolledwindow1;
 	GtkTreeView *DeviceListTree;
 	GtkListStore *DeviceListStore;
 

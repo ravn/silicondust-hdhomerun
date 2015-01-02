@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,7 +23,6 @@
 		1C896C1B0EE52F7F003F0DF5 /* libhdhomerun.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1CB9B63C0EE3505A00F782E9 /* libhdhomerun.dylib */; };
 		1C9F00050EECA6180099AAB3 /* hdhr.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1C9FFFFE0EECA5210099AAB3 /* hdhr.icns */; };
 		1CB9B63D0EE3505A00F782E9 /* libhdhomerun.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB9B63C0EE3505A00F782E9 /* libhdhomerun.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
-		1CB9B6850EE35C5800F782E9 /* libhdhomerun.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB9B63C0EE3505A00F782E9 /* libhdhomerun.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +87,6 @@
 				15409F790DCB9D7A00BC6E83 /* Gtk.framework in Frameworks */,
 				15409F7D0DCB9D8800BC6E83 /* Cairo.framework in Frameworks */,
 				1CB9B63D0EE3505A00F782E9 /* libhdhomerun.dylib in Frameworks */,
-				1CB9B6850EE35C5800F782E9 /* libhdhomerun.dylib in Frameworks */,
 				1C89205E0F7C844E00B14F4B /* CoreServices.framework in Frameworks */,
 				1C8921180F7C846700B14F4B /* ApplicationServices.framework in Frameworks */,
 			);
@@ -209,9 +207,16 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "hdhomerun_config_gui" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* hdhomerun_config_gui */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -311,58 +316,39 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../libhdhomerun",
+					/Library/Frameworks/Cairo.framework/Headers,
+					/Library/Frameworks/GLib.framework/Headers,
+					/Library/Frameworks/Gtk.framework/Headers,
+				);
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6)",
+					"$(SRCROOT)/../../libhdhomerun",
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/libhdhomerun\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/../../libhdhomerun\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../libhdhomerun\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/build/Debug\"";
 				PRODUCT_NAME = hdhomerun_config_gui;
-				WRAPPER_EXTENSION = app;
-				ZERO_LINK = YES;
 			};
 			name = Debug;
 		};
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../libhdhomerun",
+					/Library/Frameworks/Cairo.framework/Headers,
+					/Library/Frameworks/GLib.framework/Headers,
+					/Library/Frameworks/Gtk.framework/Headers,
+				);
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6)",
+					"$(SRCROOT)/../../libhdhomerun",
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/libhdhomerun\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/../../libhdhomerun\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../libhdhomerun\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/build/Debug\"";
 				PRODUCT_NAME = hdhomerun_config_gui;
-				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -371,17 +357,12 @@
 			buildSettings = {
 				/Library/Frameworks/Cairo.framework/Headers = /Library/Frameworks/Cairo.framework/Headers;
 				/Library/Frameworks/GLib.framework/Headers = /Library/Frameworks/GLib.framework/Headers;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				HEADER_SEARCH_PATHS = (
 					/Library/Frameworks/Cairo.framework/Headers,
 					/Library/Frameworks/GLib.framework/Headers,
 					/Library/Frameworks/Gtk.framework/Headers,
 				);
-				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Debug;
 		};
@@ -390,17 +371,12 @@
 			buildSettings = {
 				/Library/Frameworks/Cairo.framework/Headers = /Library/Frameworks/Cairo.framework/Headers;
 				/Library/Frameworks/GLib.framework/Headers = /Library/Frameworks/GLib.framework/Headers;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				HEADER_SEARCH_PATHS = (
 					/Library/Frameworks/Cairo.framework/Headers,
 					/Library/Frameworks/GLib.framework/Headers,
 					/Library/Frameworks/Gtk.framework/Headers,
 				);
-				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Release;
 		};

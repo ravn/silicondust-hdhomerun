@@ -32,7 +32,7 @@ GtkWidget *create_hdhomerun_config(void)
 	GtkWidget *hbox1;
 	GtkWidget *frame1;
 	GtkWidget *vbox2;
-	GtkWidget *viewport1;
+	GtkWidget *scrolledwindow1;
 	GtkWidget *DeviceListTree;
 	GtkWidget *RescanBtn;
 	GtkWidget *label1;
@@ -96,13 +96,13 @@ GtkWidget *create_hdhomerun_config(void)
 	gtk_container_add(GTK_CONTAINER(frame1), vbox2);
 	gtk_container_set_border_width(GTK_CONTAINER(vbox2), 3);
 
-	viewport1 = gtk_viewport_new(NULL, NULL);
-	gtk_widget_show(viewport1);
-	gtk_box_pack_start(GTK_BOX(vbox2), viewport1, TRUE, TRUE, 0);
+	scrolledwindow1 = gtk_scrolled_window_new(NULL, NULL);
+	gtk_widget_show(scrolledwindow1);
+	gtk_box_pack_start(GTK_BOX(vbox2), scrolledwindow1, TRUE, TRUE, 0);
 
 	DeviceListTree = gtk_tree_view_new();
 	gtk_widget_show(DeviceListTree);
-	gtk_container_add(GTK_CONTAINER(viewport1), DeviceListTree);
+	gtk_container_add(GTK_CONTAINER(scrolledwindow1), DeviceListTree);
 	gtk_tree_view_set_headers_visible(GTK_TREE_VIEW(DeviceListTree), FALSE);
 	gtk_tree_view_set_enable_search(GTK_TREE_VIEW(DeviceListTree), FALSE);
 
@@ -331,7 +331,7 @@ GtkWidget *create_hdhomerun_config(void)
 	GLADE_HOOKUP_OBJECT(hdhomerun_config, hbox1, "hbox1");
 	GLADE_HOOKUP_OBJECT(hdhomerun_config, frame1, "frame1");
 	GLADE_HOOKUP_OBJECT(hdhomerun_config, vbox2, "vbox2");
-	GLADE_HOOKUP_OBJECT(hdhomerun_config, viewport1, "viewport1");
+	GLADE_HOOKUP_OBJECT(hdhomerun_config, scrolledwindow1, "scrolledwindow1");
 	GLADE_HOOKUP_OBJECT(hdhomerun_config, DeviceListTree, "DeviceListTree");
 	GLADE_HOOKUP_OBJECT(hdhomerun_config, RescanBtn, "RescanBtn");
 	GLADE_HOOKUP_OBJECT(hdhomerun_config, label1, "label1");

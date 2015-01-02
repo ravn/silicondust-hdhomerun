@@ -44,6 +44,7 @@ HDHRConfig::HDHRConfig()
 	HDHRConfigH = this;
 
 	/* Device */
+	scrolledwindow1 = GTK_SCROLLED_WINDOW(lookup_widget("scrolledwindow1"));
 	DeviceListTree = GTK_TREE_VIEW(lookup_widget("DeviceListTree"));
 	DeviceListStore = gtk_list_store_new(1, G_TYPE_STRING);
 
@@ -125,6 +126,7 @@ HDHRConfig::HDHRConfig()
 	gtk_combo_box_set_active(ChannelMapEdit, 0);
 	UpdateProgramListEntry(999, "XXXXXXXXXXXX");
 	gtk_combo_box_set_active(ProgramList, 0);
+	gtk_scrolled_window_set_policy(scrolledwindow1, GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
 
 	/* The window must me mapped or the sizes will be incorrect */
 	gtk_widget_show(GTK_WIDGET(hdhomerun_config));

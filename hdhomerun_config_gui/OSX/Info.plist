@@ -5,15 +5,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>${EXECUTABLE_NAME}</string>
+	<string>hdhomerun_config_gui</string>
 	<key>CFBundleIconFile</key>
 	<string>hdhr.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.silicondust.hdhomerun.config.gui</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
@@ -22,5 +20,7 @@
 	<string>1.0</string>
 	<key>NSHumanReadableCopyright</key>
 	<string> Copyright © 2008 Silicondust USA Inc. &lt;www.silicondust.com&gt;.</string>
+	<key>NSAppSleepDisabled</key>
+	<true/>
 </dict>
 </plist>
