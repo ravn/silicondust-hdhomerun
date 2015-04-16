@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: xml -*-->
+<app-bundle>
+  <meta>
+    <prefix name="default">${env:JHBUILD_PREFIX}</prefix>
+    <destination overwrite="yes">${project}/build/Release</destination>
+    <run-install-name-tool/>
+    <gtk>gtk+-2.0</gtk>
+  </meta>
+  <plist>${project}/Info.plist</plist>
+  <main-binary dest="${bundle}/bin/hdhomerun_config_gui">${project}/../src/hdhomerun_config_gui</main-binary>
+  <binary>
+    ${prefix}/lib/${gtkdir}/${pkg:${gtk}:gtk_binary_version}/engines/*.so
+  </binary>
+  <binary>
+    ${prefix}/lib/gdk-pixbuf-2.0/${pkg:gdk-pixbuf-2.0:gdk_pixbuf_binary_version}/loaders/*.so
+  </binary>
+  <binary dest="${bundle}/Contents/Resources/lib/libhdhomerun.dylib">
+    ${project}/../../libhdhomerun/libhdhomerun.dylib
+  </binary>
+  <binary>
+    ${prefix}/lib/pango/${pkg:pango:pango_module_version}/modules/
+  </binary>
+  <data>
+    ${prefix}/share/themes/Clearlooks
+  </data>
+  <data dest="${bundle}/Contents/Resources">
+    ${project}/hdhr.icns
+  </data>
+  <data dest="${bundle}/Contents/Resources/etc/gtk-2.0/gtkrc">
+    ${prefix}/share/themes/Clearlooks/gtk-2.0/gtkrc
+  </data>
+</app-bundle>
